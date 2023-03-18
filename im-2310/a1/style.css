@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.stamp-border {
+    /* Background This is a design in contrast to the research site branch concept, with green circles like seeds.*/
+
+    background-color: #eee587;
+    background-image: radial-gradient(#428675 50%, transparent 50%);
+    background-position: 1rem 1rem;
+    background-repeat: repeat;
+    background-size: 10rem 10rem;
+
+    /* Spacing */
+    padding: 5rem;
+}
+
+.stamp-border__content {
+    /* Background I used a background color similar to that of the study site */
+    background-color:#eee587;
+
+    height: 100%;
+    width: 100%;
+}
+
+/*My answer is Futura, which is used by brands like Louis vuitton */
+
+p {text-align: left ;
+    font-size: 17px;
+    text-indent: 0px;
+    font-family: futura;
+    padding-top: 20px;
+    margin-left: 75px;
+    margin-right: 75px;
+    color:#12a182
+}
+/*For the convenience of reading, different fonts are used for the questions and answers. For the questions, brands such as helvetica,panasonic and jeep use these fonts.*/
+h1{
+    text-align: center;
+    font-size: 20px;
+    text-indent: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #428675;
+   
+}
+
+h3{
+    text-align: center;
+    font-size: 17px;
+    text-indent: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 75px;
+    color: #428675;
+   
+}
+.drop-area {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Border This step is to make the question and the layout clearer.*/ 
+    border: 0.25rem dashed #428675;
+    border-radius: 0.25rem;
+    margin-top: 75px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
