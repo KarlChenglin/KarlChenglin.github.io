@@ -1,0 +1,52 @@
+   /*The background color is inspired by the Kobe 10 Assassin color scheme. It uses a brilliant combination of black, grey and pink to create a very harmonious and eye-catching effect. So in this assignment, I used similar color combinations.*/
+
+.container {  display: grid;
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+    background-color: #ff0079;
+    background-image: linear-gradient(45deg, #ff0079 0%, #8b8b8b 80%, #7f7f7f 100%);
+    grid-template-columns: 1fr 0.6fr 2fr 0.7fr;
+    grid-template-rows: 2.2fr 0.6fr 1.1fr 1.1fr 1.7fr 0.9fr 1fr;
+    gap: 17px 9px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "box1 box1 box2 box2"
+      "box1 box1 box3 box3"
+      "box1 box1 box3 box3"
+      "box4 box5 box5 box6"
+      "box4 box5 box5 box6"
+      "box7 box7 box7 box7"
+      "box7 box7 box7 box7";
+  }
+
+  /*In addition to the gradient effect of pink and gray in the background, I also made each box into a well-proportioned pink and gray, and the gradient direction was opposite to the background, which would bring a bright effect to the audience. */
+  
+  .box1 { grid-area: box1; 
+    background-color:  #e9569b;
+}
+  
+  .box2 { grid-area: box2; 
+    background-color: #ff0079;
+}
+  
+  .box3 { grid-area: box3; 
+    background-color: #ff3c97;
+}
+  
+  .box4 { grid-area: box4; 
+    background-color: #b47d97;
+}
+  
+  .box5 { grid-area: box5; 
+    background-color: #a9778e;
+}
+  
+  .box6 { grid-area: box6; 
+    background-color: #9b7083;
+}
+  
+  .box7 { grid-area: box7; 
+    background-color: #745e68;
+}
+  
