@@ -1,117 +1,276 @@
-/* z-index order */
 
 *{
   box-sizing: border-box;
   background-origin: border-box;
   margin: 0;
 }
-
-/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
-/* https://lospec.com/palette-list/1bit-monitor-glow */
-/* you're welcome to change the colours if you want or any of the other general page style */
+/* I set the color to a low saturation color, which is more suitable for current reading habits.*/
 :root{
-  --col-01:#222323;
-  --col-02:#f0f6f0;
-  --col-03:#4358bc;
-  --col-04:#b6e878;
-  --border: 1px solid var(--col-02);
+  --col-01:#171219;
+  --col-02:#f2c2c2;
+  --col-03:#455075;
+  --col-04:#9a3734;
+  --col-05:#ffffff;
+  --col-06:#028ac8;
+  font-size: 17px;
+  scroll-behavior: smooth;
 }
 
+/* I changed the font to Helvetica to keep the page concise*/
 body{
+  background-color: var(--col-02);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--col-01);
+  animation: p 2s infinite linear;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* I created a rectangular navigation bar that when the mouse hovers over the font, a red button rises up and guides the user to press it. The overall color of the navigation bar is inspired by the movie Nausicaä of the Valley of the Wind, for which the author made music, and the red button is inspired by the angry red eyes of the king bug in Nausicaä of the Valley of the Wind. With this eye-catching color scheme, the user can clearly feel in control of the buttons.*/
+
+nav {
+  border-radius: 20px;
+  background: #455075;
+  box-shadow:  -5px -5px 16px #303852,5px 5px 16px #5a6898;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+nav li{
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 23px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+
+}
+
+nav li::after{
+  content: '';
+  background-color: #9a3734;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
+}
+
+nav li:hover{
+  color:#bf7189;
+ 
+}
+
+nav li:hover::after{
+  top: 50%;
+  opacity: 1;
+}
+   
+
+section{
+  margin-bottom: 3rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
   display: flex;
   flex-direction: column;
-  background-color: var(--col-01);
-  color: var(--col-02); 
-  padding: 2vw;
+  align-items: center;
 }
 
-/*
-  i've set up a basic flexbox for each recipe container - you might want to change some of the 
-  flex properties here on the container or on the individual flex items depending on how you want to style them
-*/
-.RecipeBox{
+.article-img{
+  width: 100%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+/* The dark mode button color design is still inspired by Nausicaä of the Valley of the Wind. this time I used a milder pink color and designed a misty shadow effect to give the illusion of glowing light when the user hovers the mouse over it.*/
+
+#mode-button{
+  float: right;
+  position: sticky;
+  top: 1rem;
+  font-style: helvetica;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 31px;
+  background: #455075;
+  box-shadow: -5px 5px 24px #353e5a,5px -5px 24px #556290;
+}
+
+#mode-button:hover {
+  background-color: #dc829d;
+  box-shadow: 5px -5px 17px #c4748c,-5px 5px 17px #f490ae;
+}
+
+#window.scroll{
+  font-style: helvetica;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 31px;
+  background: #455075;
+  box-shadow: 24px 24px 48px #3d4768,-24px -24px 48px #4d5982;;
+}
+
+.top {
+  float: right;
+  position: sticky;
+  top: 1rem;
+  font-style: helvetica;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  border-radius: 31px;
+  background: #97adf5;
+  box-shadow: inset 7px 7px 39px #293046,inset -7px -7px 39px #6170a4;
+}
+
+.top:hover {
+  background-color: #dc829d;
+  box-shadow: 5px -5px 17px #c4748c,-5px 5px 17px #f490ae;
+}
+
+.top.window.scroll{
+  font-style: helvetica;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 31px;
+  background: #bacaff;
+  box-shadow: inset 7px 7px 39px #293046, inset -7px -7px 39px #6170a4;
+}
+
+
+/* When people open a web page, they often encounter a situation where they need to wait for the site to load. But users will especially want to see the loading progress, so I designed a white bar that slowly grows to both sides as a progress display. This effect is actually very vague, because it does not show the completion of loading, but it will give the user the psychological implication that the site has worked very hard to load, so please be patient; and the user will have more patience when he sees the gradually growing progress bar.*/
+#load-body{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  border: var(--border);
+  align-items: center;
+  justify-content: center;
 }
 
-.FilterSection{
+/* In the design, I designed a very rigid shadow effect in the initial form of the button, while the mouse on it will produce a more detailed, diffuse shadow effect, so that the contrast can make the user feedback better.*/
 
+#load-link{
+  padding: 10px 8px;
+  border-radius: 50px;
+  border: 0;
+  background: linear-gradient(45deg, #e6e6e6, #ffffff);
+  box-shadow: 5px 5px 0px #7a2b29,-5px -5px 0px #ba433f;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-style: helvetica;
+  transition: all .5s ease;
 }
 
-.FilterBox{
 
+#load-link:hover {
+  background-color: #ffff;
+  box-shadow: 7px -7px 34px #bf7189,-7px 7px 34px #f993b1;
 }
 
-.FilterButton{
-
+#load-throbber{
+  padding: 20px 8px;
+  border-radius: 50px;
+  width: 9%;
+  height: 1rem;
+  background-color: var(--col-05);
+  box-shadow: 7px -7px 34px #bf7189,-7px 7px 34px #f993b1;
+  animation: moving 50s ease-in-out infinite;
+  display: none;
 }
 
-.SelectedFilter{
+/* Haruomi Hosono is a wonderful musician who has enriched the sound of the world by bringing very much beautiful music to it. Among the works he has participated in, I chose Nausicaä of the Valley of the Wind as a source of inspiration. When I first watched Nausicaä of the Valley of the Wind as a child, a lot of mixed emotions came over me. There was the freedom of a young girl flying through the sky; the shock of a swarm of insects charging; and a deep reflection on war. Although I have only made some simple changes to this website, I hope that after watching Haruomi Hosono's musical career, users will experience a little bit of the same emotions of Nausicaä of the Valley of the Wind.*/
+
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 17px;
+  }
   
-}
-
-.RecipeLink{
-
-}
-
-.RecipeName{
+  .img-wrapper{
+    width: 24%;
+    margin: 1.5rem auto;
+  }
 
 }
 
-.Author{
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
 
 }
 
-.RecipeImageContainer{
-
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
 }
-
-.RecipeImg{
-
-}
-
-.Attribution{
-
-}
-
-.Publisher{
-
-}
-
-.Cuisine{
-
-}
-
-.TimeToCook{
-
-}
-
-.SkillLevel{
-
-}
-
-.Course{
-
-}
-
-.Servings{
-
-}
-
-.Dietary{
-
-}
-
-.DatePublished{
-
-}
-
-.DateUpdated{
-
-}
-
-.SpecialEquipment{
-
-}
-
