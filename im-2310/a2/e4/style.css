@@ -1,0 +1,128 @@
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  background-color: var(--col-03);
+  margin: 0;
+}
+
+/* I added blue and white as the colors for this player. This will make the whole web space not so empty and produce a sense of fullness and wrapping. Then I designed the corners of the player and added shadows, which will make the player more beautiful and three-dimensional.*/
+:root{
+  --col-01:#222323;
+  --col-02:#f0f6f0;
+  --col-03:#16324c;
+  --col-04:#b6e878;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --col-07:#c43b2d;
+  --col-08:#e5d6c6;
+  --border: 1px solid var(--col-02);
+}
+
+/* As for why I chose the fullscreen button as a feature to add, I think this is a website that is used to interact with users in video, and everything we do should be designed for the user's visual experience. It is our aim to make it easy for users to watch the video and have a good experience. So how to improve the user experience through interaction? I think it is very important to add this full screen button, which will completely change the visual hierarchy of the site.*/
+
+.video-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+.video-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#videoElement{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  border-radius: 32px;
+  background: #16324c;
+  box-shadow:  37px 37px 74px #09141e,-37px -37px 74px #23507a;
+}
+
+#videoPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.6;
+  display: none;
+}
+
+.video-controls-wrapper{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#controlsWrapper{
+  display: none;
+  background: #16324c;
+  box-shadow:  26px 26px 52px #09141e,-26px -26px 52px #23507a;
+}
+
+.video-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+}
+.video-control-button:hover{
+  background-color: var(--col-08);
+}
+.video-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
+
+#playButton{
+  background-image: url('./icons/play.svg');
+}
+
+#fullScreenButton{
+  background-image: url('./icons/fullScreen.svg');
+}
+
+.video-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 2rem;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-03);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+::-moz-progress-bar {
+  background-color: var(--col-08);
+}
+
+::-webkit-progress-bar {
+  background-color: var(--col-03);
+  box-shadow: 0 1px 2px var(--col-03) inset;
+}
+::-webkit-progress-value {
+  background-color: var(--col-08);
+}
+
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
+  }
+}
